@@ -1,0 +1,31 @@
+[Unit]
+Description=GatoSports Running private API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=gatosports-running
+Group=gatosports-running
+WorkingDirectory=/var/www/gatosports-running-app/server
+Environment=NODE_ENV=production
+EnvironmentFile=/var/www/gatosports-running-app/server/.env
+ExecStart=/usr/bin/node /var/www/gatosports-running-app/server/dist/index.js
+Restart=on-failure
+RestartSec=5
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+ProtectClock=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target

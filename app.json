@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "GatoSports Running",
+    "slug": "gatosports-running",
+    "scheme": "gatorunning",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "experiments": {
+      "typedRoutes": true
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "GatoSports Running gebruikt je locatie om routes te vinden en je hardloopsessie vast te leggen.",
+          "locationAlwaysAndWhenInUsePermission": "Sta locatie op de achtergrond toe zodat je hardloopsessie doorgaat als je telefoon vergrendeld is.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
+      "expo-sqlite"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gatosports.running",
+      "infoPlist": {
+        "UIBackgroundModes": ["location"]
+      }
+    },
+    "android": {
+      "package": "com.gatosports.running"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
